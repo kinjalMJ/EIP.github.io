@@ -1,0 +1,16 @@
+SMAP
+menuRights_jsp.java
+JSP
+*S JSP
+*F
++ 0 menuRights.jsp
+menuRights.jsp
+*L
+5,5:44
+9:48,2
+10,150:50
+160:200,3
+161,35:203
+196:238,3
+197,6:241
+*E

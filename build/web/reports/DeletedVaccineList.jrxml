@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DeletedVaccineList" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="762fa6d6-0671-4b55-ad0d-60b69fcc5946">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     vaccine.`Vaccine_Id` AS vaccine_Vaccine_Id,
+     vaccine.`Vaccine_Name` AS vaccine_Vaccine_Name,
+     vaccine.`No_Of_Dose` AS vaccine_No_Of_Dose,
+     vaccine.`For_Whom` AS vaccine_For_Whom,
+     vaccine.`Vaccine_Type` AS vaccine_Vaccine_Type,
+     vaccine.`Routine_Special` AS vaccine_Routine_Special,
+     vaccine.`Description` AS vaccine_Description,
+     vaccine.`flag` AS vaccine_flag
+FROM
+     `vaccine` vaccine]]>
+	</queryString>
+	<field name="vaccine_Vaccine_Id" class="java.lang.Integer"/>
+	<field name="vaccine_Vaccine_Name" class="java.lang.String"/>
+	<field name="vaccine_No_Of_Dose" class="java.lang.Integer"/>
+	<field name="vaccine_For_Whom" class="java.lang.String"/>
+	<field name="vaccine_Vaccine_Type" class="java.lang.String"/>
+	<field name="vaccine_Routine_Special" class="java.lang.String"/>
+	<field name="vaccine_Description" class="java.lang.String"/>
+	<field name="vaccine_flag" class="java.lang.Integer"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="74"/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement uuid="386d6e47-dd46-4908-aa74-f1033ee2e39c" x="456" y="0" width="99" height="132"/>
+				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement uuid="4eb1f517-4d0d-480b-bcd2-9323ede7a597" mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000"/>
+				<staticText>
+					<reportElement uuid="33e13be2-762e-47aa-83e6-09ed6ed28447" style="Title" x="0" y="0" width="370" height="66"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Immunization]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="f78ce714-069b-424c-bf51-309836ac0c78" style="SubTitle" x="157" y="66" width="249" height="29"/>
+					<textElement>
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[DeletedVaccineList]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement uuid="0f0b1d2d-15e1-4e62-bdd2-4750243fbdc8" mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="7b59c774-91c0-47d8-bb27-7930c7ac8db4" x="307" y="12" width="144" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9abcb746-bf8e-4404-811a-51e00d353ae0" x="3" y="2" width="59" height="20"/>
+				<textElement/>
+				<text><![CDATA[Vaccine_Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b76d8ade-7121-4f6f-a01a-eed132b199ca" x="63" y="2" width="78" height="20"/>
+				<textElement/>
+				<text><![CDATA[Vaccine_Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7d00f022-1e82-44e8-a752-cc40aa95a9e7" x="144" y="2" width="71" height="20"/>
+				<textElement/>
+				<text><![CDATA[No_Of_Dose]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9a73b73c-6a5d-4c8f-b1c4-e5638e951100" x="218" y="2" width="52" height="20"/>
+				<textElement/>
+				<text><![CDATA[For_Whom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4fa026ea-803c-4c38-8485-590748f92e92" x="272" y="3" width="73" height="20"/>
+				<textElement/>
+				<text><![CDATA[Vaccine_Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="76afe8f2-9849-4f54-b984-675461f77073" x="348" y="3" width="85" height="20"/>
+				<textElement/>
+				<text><![CDATA[Routine_Special]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="92d613e6-103a-4a19-a0d0-8ffe86f55367" x="435" y="3" width="54" height="20"/>
+				<textElement/>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4bae5345-ac5b-4835-9962-a6cf8471e30f" x="492" y="3" width="41" height="20"/>
+				<textElement/>
+				<text><![CDATA[flag]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement uuid="bc6146fb-6599-4fc0-9b7c-b4234f859457" x="21" y="7" width="22" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vaccine_Vaccine_Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5cfe3424-365d-42df-b051-ea593f1b2011" x="65" y="7" width="76" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vaccine_Vaccine_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="836e9bae-0176-472b-b5c3-92af459bf2cb" x="157" y="8" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vaccine_No_Of_Dose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="05fd018b-8e9e-4633-b470-ca31f6b86c30" x="218" y="9" width="53" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vaccine_For_Whom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4205cca9-ebfd-44b0-800c-a7279cedb10d" x="276" y="9" width="69" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vaccine_Vaccine_Type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1c9d91ef-844f-4dfc-b1ab-685c571bee4b" x="348" y="10" width="85" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vaccine_Routine_Special}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7ba3179f-6725-47df-ad68-2e9f692a8b91" x="435" y="11" width="54" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vaccine_Description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d31c9b97-4288-4df0-b4a6-664cc0cf8829" x="503" y="11" width="16" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vaccine_flag}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="53" splitType="Stretch">
+			<line>
+				<reportElement uuid="53841232-5ab7-4fd1-8ca0-d32d385d2dd9" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="fe407268-910f-4b9c-9dcf-dfc6af1efc94" mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="e1b19188-7fe2-4523-921e-311aa9338cb6" style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="11bf56e1-c89d-4ae3-b36d-73e107830c58" style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="39d93e9b-45d2-4e1d-8b97-263a658e5cc0" style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,12 @@
+SMAP
+deleteHcareCall_jsp.java
+JSP
+*S JSP
+*F
++ 0 deleteHcareCall.jsp
+deleteHcareCall.jsp
+*L
+5,20:50
+25,20:71
+44,4:91
+*E

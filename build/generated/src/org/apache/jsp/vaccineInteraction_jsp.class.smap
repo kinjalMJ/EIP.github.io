@@ -1,0 +1,18 @@
+SMAP
+vaccineInteraction_jsp.java
+JSP
+*S JSP
+*F
++ 0 vaccineInteraction.jsp
+vaccineInteraction.jsp
+*L
+5,4:44
+8:47,2
+9,163:49
+172:212,3
+173,32:215
+207:250,2
+208,34:252
+242:286,3
+243,2:289
+*E

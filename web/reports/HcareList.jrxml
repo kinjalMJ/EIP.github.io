@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HcareList" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="26dfea5d-2517-4a47-a74a-07b01cd81f9e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     healthcare_provider_detail.`healthcareProvider_Id` AS healthcare_provider_detail_healthcareProvider_Id,
+     healthcare_provider_detail.`First_Name` AS healthcare_provider_detail_First_Name,
+     healthcare_provider_detail.`Last_Name` AS healthcare_provider_detail_Last_Name,
+     healthcare_provider_detail.`Gender` AS healthcare_provider_detail_Gender,
+     healthcare_provider_detail.`Birth_Date` AS healthcare_provider_detail_Birth_Date,
+     healthcare_provider_detail.`Blood_Group` AS healthcare_provider_detail_Blood_Group,
+     healthcare_provider_detail.`Mobile_No` AS healthcare_provider_detail_Mobile_No,
+     healthcare_provider_detail.`City` AS healthcare_provider_detail_City,
+     healthcare_provider_detail.`Email_Id` AS healthcare_provider_detail_Email_Id,
+     healthcare_provider_detail.`User_Name` AS healthcare_provider_detail_User_Name
+FROM
+     `healthcare_provider_detail` healthcare_provider_detail]]>
+	</queryString>
+	<field name="healthcare_provider_detail_healthcareProvider_Id" class="java.lang.Integer"/>
+	<field name="healthcare_provider_detail_First_Name" class="java.lang.String"/>
+	<field name="healthcare_provider_detail_Last_Name" class="java.lang.String"/>
+	<field name="healthcare_provider_detail_Gender" class="java.lang.String"/>
+	<field name="healthcare_provider_detail_Birth_Date" class="java.lang.String"/>
+	<field name="healthcare_provider_detail_Blood_Group" class="java.lang.String"/>
+	<field name="healthcare_provider_detail_Mobile_No" class="java.lang.String"/>
+	<field name="healthcare_provider_detail_City" class="java.lang.String"/>
+	<field name="healthcare_provider_detail_Email_Id" class="java.lang.String"/>
+	<field name="healthcare_provider_detail_User_Name" class="java.lang.String"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="71"/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement uuid="f5356345-e282-4b60-bf19-64f9ed49de78" x="456" y="0" width="99" height="132"/>
+				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement uuid="958725ff-42e4-4ed1-8888-53965fabec02" mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000"/>
+				<staticText>
+					<reportElement uuid="204e3ed8-34e1-43fd-bc79-67de0ce0ce9c" style="Title" x="0" y="0" width="370" height="66"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Immunization]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="90ee37b2-b4aa-465f-bb59-8a985aa92a78" style="SubTitle" x="157" y="66" width="249" height="29"/>
+					<textElement>
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[H-Care List]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement uuid="d741e1f3-c98d-4aa7-b93b-4d570acc35ad" mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="cf64b1d4-66fa-4641-bc38-4b6a4ddf2fd6" x="307" y="12" width="144" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7fbbd352-8a0b-4ede-8c32-27151ef64f4d" x="3" y="2" width="28" height="20"/>
+				<textElement/>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="22f9ac1e-7299-4d1c-8a5c-d84c78c87001" x="40" y="1" width="75" height="20"/>
+				<textElement/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8bf291fe-1d27-46a3-a632-7e7d51e5ce6d" x="121" y="2" width="56" height="20"/>
+				<textElement/>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73394aa3-97fe-4135-b10b-04fae8dd613f" x="182" y="2" width="65" height="20"/>
+				<textElement/>
+				<text><![CDATA[Birth_Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="654a3748-b969-4d15-acd2-11e8da77f5ba" x="249" y="3" width="63" height="20"/>
+				<textElement/>
+				<text><![CDATA[Blood_Group]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a7043924-fbe5-457e-87a9-c87281b8eda6" x="317" y="4" width="65" height="20"/>
+				<textElement/>
+				<text><![CDATA[Mobile_No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="44e75a1a-5f9c-4e52-a4e2-da29010e12ad" x="387" y="5" width="52" height="20"/>
+				<textElement/>
+				<text><![CDATA[City]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5dd1d2f9-5774-4f18-bb96-d7beca52160a" x="441" y="5" width="43" height="20"/>
+				<textElement/>
+				<text><![CDATA[Email_Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="35cee3c9-c914-413a-afb0-2ab6cb599665" x="488" y="5" width="64" height="20"/>
+				<textElement/>
+				<text><![CDATA[User_Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement uuid="f669a92d-a1be-4dc2-b49f-4018138ef36c" x="3" y="3" width="28" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{healthcare_provider_detail_healthcareProvider_Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="94c26a11-bf45-4514-ba3b-456609954941" x="43" y="5" width="41" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{healthcare_provider_detail_First_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1046d6ce-0be0-414a-b9e3-ffac21c98eb1" x="90" y="5" width="25" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{healthcare_provider_detail_Last_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="aaabe542-96c8-43db-bc9c-b3c838aa4db7" x="121" y="4" width="55" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{healthcare_provider_detail_Gender}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6eea267e-ee8d-42d4-9f03-af4705580e5a" x="182" y="4" width="65" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{healthcare_provider_detail_Birth_Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="352a54d8-fc45-4dc4-a9e9-fba720c4ffd4" x="248" y="4" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{healthcare_provider_detail_Blood_Group}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a01a68a8-1b43-45b8-816d-7b2206800bfd" x="316" y="5" width="63" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{healthcare_provider_detail_Mobile_No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="035c7e84-037b-497f-be7a-ee593d60aa19" x="387" y="5" width="50" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{healthcare_provider_detail_City}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2d92295d-967f-4c10-ac26-2649ccb7d7c7" x="441" y="5" width="44" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{healthcare_provider_detail_Email_Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="82649d19-53c1-42bd-83c2-4c5a2360635e" x="489" y="5" width="63" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{healthcare_provider_detail_User_Name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement uuid="23f4adab-0cb0-411f-91ca-a90a6b158b21" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="51b05d6b-c36e-41df-a1b9-b87678c97749" mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="5da4183c-c614-4521-83c5-1af77f211afd" style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="c67d9a86-6f9b-4db4-a0e2-5b10f7c867cb" style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="63645fdc-159c-4e0c-8cff-66677a66d9a5" style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
