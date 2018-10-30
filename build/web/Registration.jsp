@@ -12,7 +12,7 @@
     <title></title>
     <link rel="stylesheet" href="css/layout.css" type="text/css" />
     <script language="javascript" type="text/javascript"> 
-    function checkCptcha()
+  <!--  function checkCptcha()
             {
                 xmlHttp=GetXmlHttpObject();
                 if(xmlHttp==null)
@@ -51,7 +51,7 @@
                     }
                 }    
             }
-    
+    -->
     </script>
 
  
@@ -103,7 +103,6 @@
                             </select></td>
                         <td></td>
                     </tr>
-                    
                     <tr>
                         <td><span class="Validation">*</span></td>
                         <td><label for="url">Desired UserName:</label> </td>

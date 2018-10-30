@@ -52,7 +52,7 @@ public final class Registration_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("    <title></title>\n");
       out.write("    <link rel=\"stylesheet\" href=\"css/layout.css\" type=\"text/css\" />\n");
       out.write("    <script language=\"javascript\" type=\"text/javascript\"> \n");
-      out.write("    function checkCptcha()\n");
+      out.write("  <!--  function checkCptcha()\n");
       out.write("            {\n");
       out.write("                xmlHttp=GetXmlHttpObject();\n");
       out.write("                if(xmlHttp==null)\n");
@@ -91,7 +91,7 @@ public final class Registration_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                    }\n");
       out.write("                }    \n");
       out.write("            }\n");
-      out.write("    \n");
+      out.write("    -->\n");
       out.write("    </script>\n");
       out.write("\n");
       out.write(" \n");
